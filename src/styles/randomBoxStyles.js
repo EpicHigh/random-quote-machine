@@ -38,7 +38,7 @@ export const QuoteText = styled.section`
   font-size: 1.75em;
   font-weight: 300;
   animation: 4s ${fadeIn} ease-out;
-  ${props => props.click && `animation: 23s ${fadeOutIn} ease-out;`}
+  ${props => props.click && `animation: 2s ${fadeOutIn} ease-out;`}
 `;
 
 export const QuoteAuthor = styled.section`
