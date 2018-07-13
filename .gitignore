@@ -70,3 +70,4 @@ typings/
 .idea/modules.xml
 .idea/random-quote-machine.iml
 .idea/workspace.xml
+build/
