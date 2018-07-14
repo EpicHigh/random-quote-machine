@@ -10,13 +10,11 @@ library.add(faQuoteLeft);
 library.add(faQuoteRight);
 
 class App extends Component {
-	onButtonClick = () => {
-		const color = this.randomColor();
-		this.fetchQuote();
-		this.setState({color: color, click: true});
-		injectGlobal`
-		body {
-		background-color: ${color || `black`};`;
+	onButtonClick = async () => {
+		const colors = this.randomColor();
+		await this.fetchQuote();
+		await this.setState({color: colors, click: true});
+
 	};
 
 	constructor() {
@@ -32,7 +30,7 @@ class App extends Component {
 	componentWillMount() {
 		injectGlobal`
 		body {
-		background-color: ${this.state.color || `black`};
+		background-color: ${`black` && this.state.color};
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -42,7 +40,7 @@ class App extends Component {
 	}`;
 	}
 
-	fetchQuote() {
+	async fetchQuote() {
 		unirest
 		.post(
 			"https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies&count=1"
@@ -83,7 +81,7 @@ class App extends Component {
 			<div>
 				<RandomBox
 					userClick={this.onButtonClick}
-					fontColor={this.state.color || `black`}
+					fontColor={`black` && this.state.color}
 					isClick={this.state.click}
 					quote={this.state.quote}
 					author={this.state.author}
