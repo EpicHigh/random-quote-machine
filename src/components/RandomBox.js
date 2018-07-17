@@ -6,10 +6,10 @@ import {
   QuoteText
 } from "../styles/randomBoxStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {injectGlobal} from "styled-components";
+import { injectGlobal } from "styled-components";
 
 const RandomBox = ({ fontColor, userClick, quote, author, isClick }) => {
-	injectGlobal`
+  injectGlobal`
 	    body {
 	    background-color: ${fontColor};`;
   return (
